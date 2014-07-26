@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GoTRADE Platform v1.0</title>
+	
+	<!-- JQuery -->
+	<script src="js/jquery-1.11.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- SB Admin CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+	<!-- Moment JS -->
+	<script src="js/plugins/moment/moment.js" type="text/javascript"></script>
+
+	<!-- Google Chart -->
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<!-- <script src="src/googlechart/ng-google-chart.js" type="text/javascript"></script> -->
+	
+	<!-- AM Charts -->
+    <script src="js/plugins/amcharts/amcharts.js" type="text/javascript"></script>
+    <script src="js/plugins/amcharts/serial.js" type="text/javascript"></script>
+	
+	<!-- Code-Mirror -->
+	<script src="js/plugins/codemirror/codemirror.js" type="text/javascript"></script>
+	<script src="js/plugins/codemirror/javascript.js" type="text/javascript"></script>
+	<link rel="stylesheet" href="js/plugins/codemirror/codemirror.css">
+	
+	<!-- Self-created Javascript -->
+	<script src="js/algotrade.js" type="text/javascript"></script>
+	
+</head>
+
+<body>
+    <div id="wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">GoTRADE</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-messages">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>John Smith</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>Yesterday</em>
+                                    </span>
+                                </div>
+                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>Read All Messages</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-messages -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-tasks fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-tasks">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 1</strong>
+                                        <span class="pull-right text-muted">40% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                            <span class="sr-only">40% Complete (success)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 2</strong>
+                                        <span class="pull-right text-muted">20% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+                                            <span class="sr-only">20% Complete</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 3</strong>
+                                        <span class="pull-right text-muted">60% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                            <span class="sr-only">60% Complete (warning)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <p>
+                                        <strong>Task 4</strong>
+                                        <span class="pull-right text-muted">80% Complete</span>
+                                    </p>
+                                    <div class="progress progress-striped active">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                            <span class="sr-only">80% Complete (danger)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Tasks</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-tasks -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-comment fa-fw"></i> New Comment
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-tasks fa-fw"></i> New Task
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a class="text-center" href="#">
+                                <strong>See All Alerts</strong>
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-alerts -->
+                </li>
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+
+            <div class="navbar-default navbar-static-side" role="navigation">
+                <div class="sidebar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <li>
+                            <a href="index.html"><i class="fa fa-home fa-fw"></i> Home</a>
+                        </li>
+                        <li>
+                            <a href="charts.html"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
+                        </li>
+                        <li>
+                            <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                        </li>
+                        <li>
+                            <a href="strategy.html"><i class="fa fa-pencil-square-o fa-fw"></i> Strategy</a>
+                        </li>
+                        <li>
+                            <a href="shop.html"><i class="fa fa-shopping-cart fa-fw"></i> Shop</a>
+                        </li>
+                        <li>
+                            <a href="Tutorial.html"><i class="fa fa-files-o fa-fw"></i> Tutorial</a>
+                        </li>
+                        <li>
+                            <a href="help.html"><i class="fa fa-info-circle fa-fw"></i> Help</a>
+                        </li>
+                    </ul>
+                    <!-- /#side-menu -->
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Strategy Formation</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+						<!-- Nav tabs -->
+						<ul class="nav nav-pills">
+							<li class="active"><a href="#step1" data-toggle="tab">Step 1</a>
+							</li>
+							<li><a href="#step2" data-toggle="tab">Step 2</a>
+							</li>
+							<li><a href="#step3" data-toggle="tab">Step 3</a>
+							</li>
+							<li><a href="#step4" data-toggle="tab">Step 4</a>
+							</li>
+						</ul>
+						
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<!-- Step 1 -->
+							<div class="tab-pane fade in active" id="step1">
+								<div class="panel-body" style="height:100%, width:100%">
+									<h3>Time & Stocks</h3>
+									<br>
+									<div class="row">
+										<div class="col-lg-6">
+											<fieldset id="timeinput">
+												<div class="form-group">
+													<label>Time From</label>
+													<input class="form-control" id="time_from" type="Date">
+													<label>Time To</label>
+													<input class="form-control" id="time_to" type="Date">
+													<p class="help-block">Time locked: <input type="checkbox" id="timelock" disabled></p>
+												</div>
+												<button class="btn btn-default" onclick ="locktime()">Lock</button>
+											</fieldset>
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+										<div class="col-lg-6">
+											<fieldset id="stockimport">
+												<div class="form-group">
+													<label>Stock ID</label>
+													<input class="form-control" id="stock_id" type="text" value="0001">
+													<label>Country</label>
+													<select class="form-control" id="stock_country">
+														<option value="HK">HK</option>
+														<option value="CN">CN</option>
+														<option value="TW">TW</option>
+													</select>
+													<p class="help-block" id="stockinfo">Imported Stocks: N/A</p>
+												</div>
+												<button class="btn btn-default" onclick ="import_stock()">Import</button>
+											</fieldset>
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+									</div>
+									<!-- /.row (nested) -->
+								</div>
+							</div>
+							<!-- Step 2 -->
+							<div class="tab-pane fade" id="step2">
+							    <div class="panel-body" style="height:100%, width:100%">
+									<h3>Parameters</h3>
+									<br>
+									<div class="row">
+										<div class="col-lg-6">
+											<fieldset id="parametersinput">
+												<div class="form-group">
+													<label>Capital</label>
+													<input type="number" class = "form-control" id="capital" value=100000>
+													<label>Fixed Cost</label>
+													<input type="number" class = "form-control" id="fixed_cost" value=5>
+													<label>Variable Cost</label>
+													<input type="number" class = "form-control" id="variable_cost" value=0.05>
+													<p class="help-block">Parameters locked: <input type="checkbox" id="paralock" disabled></p>
+												</div>
+												<button class="btn btn-default" id="lockpara" onclick ="lockparameters()">Lock</button>
+											</fieldset>
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+										<div class="col-lg-6">
+											<fieldset id="costinput">
+												<div class="form-group">
+												    <label>Settings</label>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" id="short_allowed"checked>Allow short sell
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" id="cash_floored" checked>Cash floored by zero
+														</label>
+													</div>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" id="ruin_on" checked>Ruin if negative total asset
+														</label>
+													</div>
+												</div>
+											</fieldset>
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+									</div>
+									<!-- /.row (nested) -->
+								</div>
+							</div>
+							<!-- Step 3 -->
+							<div class="tab-pane fade" id="step3">
+							    <div class="panel-body" style="height:100%, width:100%">
+									<h3>User Defined Functions</h3>
+									<br>
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="form-group">
+												<label>Coding</label>
+												<textarea class="form-control" id="UDF" rows="6"></textarea>
+											</div>
+											<p class="help-block" id="funcinfo">Saved functions: </p>
+											<button class="btn btn-default" onclick ="save()">Save</button>
+											<button class="btn btn-default" data-toggle="modal" data-target="#myModal" onclick="setTimeout(function(){getUDFstring()},500)">Modify</button>
+											<!-- Modal -->
+											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+												<div class="modal-dialog">
+													<div class="modal-content">
+														<div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title" id="myModalLabel">Coding</h4>
+														</div>
+														<div class="modal-body">
+															<textarea class="form-control" id="UDF2" rows="6"></textarea>
+														</div>
+														<div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+															<button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveUDFstring()">Save changes</button>
+														</div>
+													</div>
+													<!-- /.modal-content -->
+												</div>
+												<!-- /.modal-dialog -->
+											</div>
+											<!-- /.modal -->
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+										<div class="col-lg-6">
+											<label>Libraries</label>
+											<select multiple class="form-control" size="7" id="libraries" onchange="">
+												<option value="MOV_AVG" selected>MOV_AVG</option>
+												<option value="RSI">RSI</option>
+												<option value="MACD">MACD</option>
+											</select>
+											<br><br>
+											<button class="btn btn-default" onclick ="importlibraries()">Import</button>
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+									</div>
+									<!-- /.row (nested) -->
+								</div>
+							</div>
+							<!-- Step 4 -->
+							<div class="tab-pane fade" id="step4">
+							    <div class="panel-body" style="height:100%, width:100%">
+									<h3>Trading Strategies</h3>
+									<br>
+									<div class="row">
+										<div class="col-lg-6">
+											<div class="form-group">
+												<label>Long Strategies</label>
+												<input class="form-control" id="long_strategies" type="text" value="MOV_AVG(tt,30)>MOV_AVG(tt,50)"><br>
+												<div id="buybar"></div>
+											</div>
+											<button class="btn btn-default" onclick ="run()">Run</button>
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+										<div class="col-lg-6">
+											<div class="form-group">
+												<label>Short Strategies</label>
+												<input class="form-control" id="short_strategies" type="text" value="MOV_AVG(tt,30)<MOV_AVG(tt,50)"><br>
+												<div id="sellbar"></div>
+											</div>
+										</div>
+										<!-- /.col-lg-6 (nested) -->
+									</div>
+									<!-- /.row (nested) -->
+								</div>
+							</div>
+						</div>
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#Timelinechart" data-toggle="tab" onclick ="if(redsoxplot){setTimeout(function(){plotredsox()},500)}">Timeline</a>
+							</li>
+							<li><a href="#Pricechart" onclick ="if(candleplot){setTimeout(function(){plotcandle()},500)}" data-toggle="tab">Price</a>
+							</li>
+							<li><a href="#UDFchart" onclick ="if(UDFplot){setTimeout(function(){plotlinealert()},500)}" data-toggle="tab">UDF</a>
+							</li>
+						</ul>
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<!-- Timeline -->
+							<div class="tab-pane fade in active" id="Timelinechart">
+								<div class="panel-body">
+									<h3>Timeline Chart</h3>
+									<br>
+									<div class="panel panel-default">
+										<div id="calendar_basic" style="width:100%; height:350px"></div>
+									</div>
+								</div>
+							</div>
+							<!-- Price -->
+							<div class="tab-pane fade" id="Pricechart">
+								<div class="panel-body">
+									<h3>Price Chart</h3>
+									<br>
+									<div class="panel panel-default"> 
+										<div id="chartdiv" style="width:100%; height:400px;"></div>
+										<div style="float:left;margin-right:20px;">
+										   <select style="width:100px; text-align:center" id="candleselect" onChange="plotcandle()">
+										   </select>
+										</div>
+										<div style="float:right;margin-right:20px;">
+											<input onChange="changeZoomDates()" style="width:100px; text-align:center"
+											type="text" id="startDate">-
+											<input onChange="changeZoomDates()" style="width:100px; text-align:center"
+											type="text" id="endDate">
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- UDF -->
+							<div class="tab-pane fade" id="UDFchart">
+								<div class="panel-body">
+									<h3>UDF Chart</h3>
+									<br>
+									<div class="col-lg-6">
+									    <div class="form-group">
+										<input class="form-control" id="UDFchartinput" type="text" value="MOV_AVG(tt,30)">
+										</div>
+									</div>
+									<div class="col-lg-6">
+									    <div class="form-group">
+									    <button class="btn btn-default" onclick ="plotline()">Plot</button>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div id="chartdiv2" style="width: 100%; height: 400px;"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+	
+    <!-- Core Scripts - Include with every page -->
+    <script src="js/jquery-1.11.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+	
+    <!-- SB Admin Scripts - Include with every page -->
+    <script src="js/sb-admin.js"></script>
+
+	<!-- JS add-in required -->
+	<script src="js/algotrade.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/plugins/jison/def_functions.js"></script>
+	<script type="text/javascript" src="js/plugins/jison/use_functions_bool.js"></script>
+	<script type="text/javascript" src="js/plugins/jison/use_functions_eval.js"></script>
+
+</body>
+
+</html>
