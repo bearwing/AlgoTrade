@@ -780,9 +780,12 @@ function run() {
   var tot_varcost = 0;															// Total Variable Cost
   
   var price = [];																// Stock Price array
+  var selectopt;																// Selected Option
   var buyamt = [];																// Buy Amount
   var sellamt = [];																// Sell Amount
+  var tradeamt = [];															// Trade Amount
   var unit = [];																// Unit holding
+  var prev_data = 0;															// Previous Data
 
   var tempdata = [];															// For Transaction Display
   var dataSet = [];																// For Transaction Display
@@ -820,26 +823,49 @@ function run() {
 	  // Long Strategies
 	  try{boolean_buy = use_functions_bool.parse(lstra);}catch(e){alert(e.message);break;};	  
 	  
+	  if (ruin_on == true && tot_asset <= 0) {
+	     boolean_buy = false;
+	  }
+	  
+	  if (cash_floored == true && cash <= 0) {
+	     boolean_buy = false;
+	  }
+	  
 	  if (boolean_buy == true) {
+	  
+		 for (i=1;i<=stockcount;i++) {
+		    selectopt = document.getElementById("buyselect"+i)
+		    if (selectopt.options[selectopt.selectedIndex].value == "Cash Ratio") {
+			   buyamt[i] = cash * Number(document.getElementById("buyamt"+i).value) / 100;
+			}
+		 }
+		  
 	     tempdata = [curr_t, "Buy"];
 		 assetholding = 0;
 		 fc_cost = 0;
 		 vc_cost = 0;
 		 trade_cost = 0;
 	     for (i=1;i<=stockcount;i++) {
-	        cash = cash - buyamt[i];
-		    unit[i] = unit[i] + buyamt[i]/price[i][adj_curr_t];
+		    prev_data = cash;
+			if (cash_floored == true) {
+			   cash = Math.max(0, cash - buyamt[i]);
+			} else {
+			   cash = cash - buyamt[i];
+			}
+		    tradeamt[i] = prev_data - cash;
+			unit[i] = unit[i] + tradeamt[i]/price[i][adj_curr_t];        
 		    assetholding = assetholding + unit[i] * price[i][adj_curr_t];
 			
-			if (buyamt[i] != 0) {
+			if (tradeamt[i] != 0) {
 			   fc_cost = fc_cost + fc_input;
-			   vc_cost = vc_cost + vc_input * buyamt[i];
+			   vc_cost = vc_cost + vc_input * tradeamt[i];
 			}
 
 			tempdata.push(unit[i].toFixed(2));
 		 }
 		 trade_cost = fc_cost + vc_cost;
-		 tot_asset = cash + assetholding - trade_cost;
+		 cash = cash - trade_cost;
+		 tot_asset = cash + assetholding;
 		 
 		 tot_trade += 1;
 		 tot_long += 1;
@@ -854,26 +880,44 @@ function run() {
 	   // Short Strategies
 	  try{boolean_sell = use_functions_bool.parse(sstra);}catch(e){alert(e.message);break;};
 	  
+	  if (ruin_on == true && tot_asset <= 0) {
+	     boolean_sell = false;
+	  }
+	  
 	  if (boolean_sell == true) {
+	  
+		 for (i=1;i<=stockcount;i++) {
+		    selectopt = document.getElementById("sellselect"+i)
+		    if (selectopt.options[selectopt.selectedIndex].value == "Cash Ratio") {
+			   sellamt[i] = cash * Number(document.getElementById("sellamt"+i).value) / 100;
+			}
+		 }
+		 
 	     tempdata = [curr_t, "Sell"];
 		 assetholding = 0;
 		 fc_cost = 0;
 		 vc_cost = 0;
 		 trade_cost = 0;
 	     for (i=1;i<=stockcount;i++) {
-	        cash = cash + sellamt[i];
-		    unit[i] = unit[i] - sellamt[i]/price[i][adj_curr_t];
+			prev_data = unit[i];
+			if (short_allowed == true) {
+				unit[i] = unit[i] - sellamt[i]/price[i][adj_curr_t];
+			} else {
+				unit[i] = Math.max(0, unit[i] - sellamt[i]/price[i][adj_curr_t]);
+			}
+			tradeamt[i] = (prev_data - unit[i]) * price[i][adj_curr_t];
+			cash = cash + tradeamt[i];
 		    assetholding = assetholding + unit[i] * price[i][adj_curr_t];
 			
-			if (sellamt[i] != 0) {
+			if (tradeamt[i] != 0) {
 			   fc_cost = fc_cost + fc_input;
-			   vc_cost = vc_cost + vc_input * sellamt[i];
+			   vc_cost = vc_cost + vc_input * tradeamt[i];
 			}
-			
 			tempdata.push(unit[i].toFixed(2));
 		 }
 		 trade_cost = fc_cost + vc_cost;
-		 tot_asset = cash + assetholding - trade_cost;
+		 cash = cash - trade_cost;
+		 tot_asset = cash + assetholding;
 		 
 		 tot_trade += 1;
 		 tot_short += 1;
